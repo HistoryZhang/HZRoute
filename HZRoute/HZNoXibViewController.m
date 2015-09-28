@@ -8,6 +8,9 @@
 
 #import "HZNoXibViewController.h"
 #import "HZRoute.h"
+#import "HZXibViewController.h"
+
+NSString * kNoXibVcPath = @"hzroute://kHZNoXibVcPath";
 
 @interface HZNoXibViewController ()
 
@@ -17,11 +20,7 @@
 
 + (void)load
 {
-    HZRouteRegisterInfo *info = [HZRouteRegisterInfo routeRegisterInfo];
-    info.vcClass = [HZNoXibViewController class];
-    info.loadXib = NO;
-    info.paramKeyName = @"extra";
-    [HZRoute addRoutePath:@"vc/HZNoXibViewController" registerInfo:info];
+    [HZRoute registerPath:@"hzroute://kHZNoXibVcPath" routeInfo:@"HZNoXibViewController/0/extra"];
 }
 
 - (void)viewDidLoad {
@@ -58,7 +57,7 @@
 
 - (void)buttonAction
 {
-    [HZRoute routePath:@"vc/HZXibViewController"
+    [HZRoute routePath:kXibVcPath
                  param:@"Xib"
                success:^(UIViewController *viewController) {
                    [self.navigationController pushViewController:viewController animated:YES];
