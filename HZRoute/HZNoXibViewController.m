@@ -17,11 +17,7 @@
 
 + (void)load
 {
-    HZRouteRegisterInfo *info = [HZRouteRegisterInfo routeRegisterInfo];
-    info.vcClass = [HZNoXibViewController class];
-    info.loadXib = NO;
-    info.paramKeyName = @"extra";
-    [HZRoute addRoutePath:@"vc/HZNoXibViewController" registerInfo:info];
+    [HZRoute registerPath:@"vc/HZNoXibViewController" routeInfo:@"HZNoXibViewController/0/extra"];
 }
 
 - (void)viewDidLoad {

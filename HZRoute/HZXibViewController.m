@@ -17,13 +17,7 @@
 
 + (void)load
 {
-    HZRouteRegisterInfo *info = [HZRouteRegisterInfo routeRegisterInfo];
-    info.sbName = @"Main";
-    info.vcClass = [HZXibViewController class];
-    info.vcIdentifier = @"kVcIdfViewController";
-    info.loadXib = YES;
-    info.paramKeyName = @"param";
-    [HZRoute addRoutePath:@"vc/HZXibViewController" registerInfo:info];
+    [HZRoute registerPath:@"vc/HZXibViewController" routeInfo:@"HZXibViewController/1-Main-kVcIdfViewController/param"];
 }
 - (IBAction)buttonAction:(id)sender
 {

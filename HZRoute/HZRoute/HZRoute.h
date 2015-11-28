@@ -10,44 +10,19 @@
 
 @import UIKit;
 
-/**
- *  Some Register Information
- */
-@interface HZRouteRegisterInfo : NSObject
-/**
- *  Storyboard Name
- */
-@property (copy, nonatomic) NSString *sbName;
-/**
- *  ViewController Identifier
- */
-@property (copy, nonatomic) NSString *vcIdentifier;
-/**
- *  ViewController Class
- */
-@property (strong, nonatomic) Class vcClass;
-/**
- *  If YES, ViewController will create with `sbName` and `vcIdentifier`.
- *  Else, Use [[Class alloc] init] to create ViewController.
- *  Default is YES.
- */
-@property (assign, nonatomic) BOOL loadXib;
-/**
- *  Param Key Name.
- *  Param should be an Object.
- */
-@property (copy, nonatomic) NSString *paramKeyName;
-+ (instancetype)routeRegisterInfo;
-@end
-
 @interface HZRoute : NSObject
 /**
  *  Register Route Path
  *
- *  @param path         route path
- *  @param registerInfo register info
+ *  @param path route path
+ *              scheme://host
+ *  @param info init viewcontroller info
+ *              vcClass/1-sbName-vcIdentifier/paramKeyName
+ *              vcClass/0/paramKeyName
+ *  @return YES success
+ *          NO  fail
  */
-+ (void)addRoutePath:(NSString *)path registerInfo:(HZRouteRegisterInfo *)registerInfo;
++ (BOOL)registerPath:(NSString *)path routeInfo:(NSString *)info;
 /**
  *  Jump ViewController With Register Path
  *
