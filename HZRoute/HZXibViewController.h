@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * kXibVcPath;
+
 @interface HZXibViewController : UIViewController
 
 @property (copy, nonatomic) NSString *param;

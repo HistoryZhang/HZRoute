@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * kNoXibVcPath;
+
 @interface HZNoXibViewController : UIViewController
 @property (copy, nonatomic) NSString *extra;
 @end
